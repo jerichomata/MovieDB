@@ -11,7 +11,7 @@ router.get("/movies", async (req, res) => {
         headers: {
           accept: "application/json",
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZjQ3OTg5N2Q3YjJmYzI0MzM2OTM2ZjY0ZmIyNjBiOSIsInN1YiI6IjY0ZWU5MzBhZTBjYTdmMDE0ZjY5NTIxOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UcOpUWk7D5k3OcmQ1GbUgdViKlNK5Ehm-AVieez7StM",
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMTFiNmFhN2ZkODVmYjgzYmU0YTQ3ZmMzMmYxMGE2NiIsInN1YiI6IjY0ZjA1NTg3Y2FhNTA4MDBlOTUxOTExNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.rDdTnil--w8IRFmnSR8WtWgzYIe3gGkuoULwOBaj97c",
         },
       }
     );
@@ -20,29 +20,38 @@ router.get("/movies", async (req, res) => {
   } catch (error) {}
 });
 
-router.get("/markFavorite", async (req, res) => {
-  const { movieId } = req.query;
+router.get("/movie/:id", async (req, res) => {
+  const { id } = req.params;
   try {
-    const data = await fetch(
-      "https://api.themoviedb.org/3/account/20371636/favorite",
+    const movie = await fetch(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=211b6aa7fd85fb83be4a47fc32f10a66&language=en-US`,
       {
-        method: "POST",
+        method: "GET",
         headers: {
           accept: "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZjQ3OTg5N2Q3YjJmYzI0MzM2OTM2ZjY0ZmIyNjBiOSIsInN1YiI6IjY0ZWU5MzBhZTBjYTdmMDE0ZjY5NTIxOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UcOpUWk7D5k3OcmQ1GbUgdViKlNK5Ehm-AVieez7StM",
         },
-        body: JSON.stringify({
-          media_type: "movie",
-          id: 615656,
-          favorite: true,
-        }),
       }
     );
-    const data1 = await data.json();
-    res.status(200).json(data1);
+    const data = await movie.json();
+    res.status(200).json(data);
   } catch (error) {
     console.log(error);
+    res.status(500).json({ message: "Server Error" });
+  }
+});
+
+router.get("/search/:movie", async (req, res) => {
+  const { movie } = req.params;
+  console.log(movie);
+  try {
+    const movies = await fetch(
+      `https://api.themoviedb.org/3/search/movie?query=${movie}&api_key=211b6aa7fd85fb83be4a47fc32f10a66`
+    );
+    const data = await movies.json();
+    res.status(200).json(data);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Server Error" });
   }
 });
 module.exports = router;

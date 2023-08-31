@@ -2,14 +2,14 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { removeMovie } from "../store/movieSlice/movieSlice";
-export default function Watchlist() {
+export default function Favourite() {
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movie.movie);
 
   return (
     <div>
       <div className="home-page">
-        <h1>Movie List</h1>
+        <h1 className="main_heading">Favourites List</h1>
         <div className="movie-list">
           {movies.map((movie, index) => (
             <div
@@ -23,7 +23,7 @@ export default function Watchlist() {
               />
               <h2>{movie.title}</h2>
               <p>{movie.overview}</p>
-              {movie.watchlist ? (
+              {movie.favourite ? (
                 <button
                   style={{
                     position: "absolute",
@@ -34,7 +34,7 @@ export default function Watchlist() {
                   }}
                   onClick={() => dispatch(removeMovie(movie.id))}
                 >
-                  Remove From Watchlist
+                  Remove From Favourites
                 </button>
               ) : (
                 <button
@@ -45,7 +45,7 @@ export default function Watchlist() {
                     width: "100%",
                   }}
                 >
-                  Add to Watchlist
+                  Add to Favourites
                 </button>
               )}
             </div>

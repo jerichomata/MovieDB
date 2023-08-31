@@ -1,27 +1,31 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setMovie } from "../store/movieSlice/movieSlice";
-import { Link } from "react-router-dom";
-export default function Home() {
+export default function Searched() {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
   const [totalMovies, setTotalMovies] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
-  const [movies, setMovies] = useState([]);
+
   const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setLoading] = useState(true);
-  const getMovies = useCallback(async () => {
-    const response = await fetch(`/api/movies?page=${currentPage}`);
+  const [totalPages, setTotalPages] = useState(0);
+  const params = useParams();
+  const [movies, setMovies] = useState([]);
+  const { movie } = params;
+
+  const getMovies = async () => {
+    setLoading(true);
+    const response = await fetch(`/api/search/${movie}`);
     const data = await response.json();
+    console.log(data);
+    setMovies(data.results);
     setTotalMovies(data.total_results);
     setTotalPages(data.total_pages);
-    setMovies(data.results);
     setLoading(false);
-    console.log(data);
-  });
+  };
   useEffect(() => {
     getMovies();
   }, []);
-
   const addToFav = (id, movie) => {
     dispatch(setMovie(movie));
     setMovies((prevData) => {
@@ -41,7 +45,7 @@ export default function Home() {
   return (
     <div>
       <div className="home-page">
-        <h1 className="main_heading">Movie List</h1>
+        <h1 className="main_heading">Search Result for {movie}</h1>
         <div className="movie-list">
           {movies.map((movie, index) => (
             <div
@@ -52,17 +56,13 @@ export default function Home() {
             >
               <Link to={`/movie/${movie.id}`}>
                 <img
-                // style={{width:"100%", height:"90%"}}
                   src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
                   alt={movie.title}
                 />
-                <h2 style={
-                  {
-                    position:"absolute",
-                    bottom:10
-                  }
-                }>{movie.title}</h2>
-                {/* <p>{movie.overview}</p> */}
+                <h2>{movie.title}</h2>
+                <p>{movie.overview.length > 300
+                    ? movie.overview.slice(0, 300) + "..."
+                    : movie.overview}</p>
               </Link>
               {movie.favourite ? (
                 <span

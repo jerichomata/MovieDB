@@ -39,7 +39,7 @@ a {
   padding: 20px;
   box-shadow: 1px 2px 15px rgba(255, 255, 255, 0.3);
   width: 300px;
-  height: 400px;
+  height: 200px;
   text-align: center;
   background-color: transparent;
 }
@@ -83,6 +83,14 @@ a {
   font-size: 40px;
   margin-bottom: 20px;
   font-weight: bold;
+}
+
+.detail_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 .icon:hover {
   color: white;
@@ -139,12 +147,10 @@ a {
 }
 
 .register-form {
-  max-width: 400px;
-
+  width: 30%;
   margin: 100px auto;
   padding: 20px;
   border: 1px solid #ccc;
-  background-color: #f7f7f7;
 }
 
 .form-group {
@@ -192,4 +198,102 @@ button {
     transform: translateY(0px);
     opacity: 1;
   }
+}
+
+.movie_detail {
+  width: 80%;
+  display: flex;
+  height: 80%;
+  border-radius: 20px;
+  position: absolute;
+  top: 30px;
+  box-shadow: 5px 12px 25px rgba(0, 0, 0, 0.8);
+  border-radius: 25px;
+  left: 150px;
+  margin: auto;
+}
+.movie_detail__poster {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.movie_Desc {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.detail_item > span {
+  background: none;
+}
+.detail_container > p {
+  background: none;
+}
+
+.detail_container {
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 30px;
+  background-color: #333;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+.detail_Poster {
+  width: 200px;
+  height: 300px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.generes {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.learn_button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.learn_button:hover {
+  background-color: #666;
+}
+.more_btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 80px;
+}
+.more_btn:hover {
+  background-color: #666;
+}
+
+.search_bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  border: none;
+  outline: 1px solid rgb(9, 9, 102);
+  border-radius: 5px;
 }

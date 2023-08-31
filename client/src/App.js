@@ -6,6 +6,8 @@ import Register from "./pages/Register";
 
 import Login from "./pages/Login";
 import { useEffect } from "react";
+import Details from "./pages/Details";
+import Searched from "./pages/Searched";
 function App() {
   const loggedIn = localStorage.getItem("token");
   useEffect(() => {
@@ -15,11 +17,21 @@ function App() {
     <Routes>
       <Route
         path="/"
-        element={loggedIn ? <Home /> : <Navigate replace to={"/login"} />}
+        // element={loggedIn ? <Home /> : <Navigate replace to={"/login"} />}
+        element={<Home/>}
+
       />
       <Route
         path="/watchlist"
         element={loggedIn ? <Watchlist /> : <Navigate replace to="/login" />}
+      />
+      <Route
+        path="/movie/:id"
+        element={loggedIn ? <Details /> : <Navigate replace to="/login" />}
+      />
+      <Route
+        path="/search/:movie"
+        element={loggedIn ? <Searched /> : <Navigate replace to="/login" />}
       />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />

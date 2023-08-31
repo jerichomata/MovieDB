@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setMovie } from "../store/movieSlice/movieSlice";
+import { Link } from "react-router-dom";
 export default function Home() {
   const dispatch = useDispatch();
   const [totalMovies, setTotalMovies] = useState(0);
@@ -15,17 +16,18 @@ export default function Home() {
     setTotalPages(data.total_pages);
     setMovies(data.results);
     setLoading(false);
+    console.log(data);
   });
   useEffect(() => {
     getMovies();
   }, []);
 
-  const addToWatchlist = (id, movie) => {
+  const addToFav = (id, movie) => {
     dispatch(setMovie(movie));
     setMovies((prevData) => {
       const newData = prevData.map((obj) => {
         if (obj.id === id) {
-          return { ...obj, watchlist: true };
+          return { ...obj, favourite: true };
         }
         return obj;
       });
@@ -39,45 +41,37 @@ export default function Home() {
   return (
     <div>
       <div className="home-page">
-        <h1>Movie List</h1>
+        <h1 className="main_heading">Movie List</h1>
         <div className="movie-list">
           {movies.map((movie, index) => (
             <div
+              to={`/movie/${movie.id}`}
               style={{ position: "relative" }}
               key={index}
               className="movie-card"
             >
-              <img
-                src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
-                alt={movie.title}
-              />
-              <h2>{movie.title}</h2>
-              <p>{movie.overview}</p>
-              {movie.watchlist ? (
-                <button
-                  style={{
-                    position: "absolute",
-                    backgroundColor: "red",
-                    bottom: 2,
-                    left: 0,
-                    width: "100%",
-                  }}
+              <Link to={`/movie/${movie.id}`}>
+                <img
+                  src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
+                  alt={movie.title}
+                />
+                <h2>{movie.title}</h2>
+                <p>{movie.overview}</p>
+              </Link>
+              {movie.favourite ? (
+                <span
                   onClick={() => getMovies()}
+                  className="material-symbols-outlined favourite_icon favourited"
                 >
-                  Remove From Watchlist
-                </button>
+                  playlist_add_check
+                </span>
               ) : (
-                <button
-                  style={{
-                    position: "absolute",
-                    bottom: 2,
-                    left: 0,
-                    width: "100%",
-                  }}
-                  onClick={() => addToWatchlist(movie.id, movie)}
+                <span
+                  onClick={() => addToFav(movie.id, movie)}
+                  className="material-symbols-outlined favourite_icon"
                 >
-                  Add to Watchlist
-                </button>
+                  favorite
+                </span>
               )}
             </div>
           ))}
@@ -85,8 +79,8 @@ export default function Home() {
       </div>
       <div className="pagination">
         <div>
-          <p> Total Results : {totalMovies}</p>
-          <p> Total Pages : {totalPages}</p>
+          <p> Total Results :{totalMovies}</p>
+          <p> Total Pages :{totalPages}</p>
         </div>
         <div className="pagination_container">
           <button

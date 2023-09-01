@@ -68,7 +68,8 @@ export default function Searched() {
                     {
                       // fontSize: movie.title.length > 23 ? "14px" : "20px",
                       position:"absolute",
-                      bottom: 10
+                      bottom: 10,
+                      textTransform: "uppercase"
                     }
                   }>{movie.title.length > 20
                     ? movie.overview.slice(0, 18) + "..."

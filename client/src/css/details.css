@@ -1,4 +1,4 @@
-.details-container {
+.over-details-container {
     width: 100vw;
     height: 100vh;
     position: relative;
@@ -29,14 +29,14 @@
 .movie_detail {
     width: 80%;
     display: flex;
-    height: 80%;
-    border-radius: 20px;
+    height: 60%;
     position: absolute;
     top: 30px;
     box-shadow: 5px 12px 25px rgba(0, 0, 0, 0.8);
-    border-radius: 25px;
-    left: 150px;
+    border-radius: 20px;
+    left: 120px;
     margin: auto;
+    margin-top: 140px;
 }
 
 .movie_detail__poster {
@@ -58,7 +58,7 @@
 .detail_container {
     display: flex;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-top: 30px;
     background-color: #333;
     flex-direction: column;
@@ -70,7 +70,7 @@
 .detail_Poster {
     width: 200px;
     height: 300px;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-bottom: 10px;
 }
   
@@ -80,6 +80,9 @@
     gap: 10px;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: left;
 }
-  
+
+.details-button {
+    color: yellow;
+}

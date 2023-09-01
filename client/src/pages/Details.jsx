@@ -21,7 +21,7 @@ export default function Details() {
   }, []);
 
   return (
-    <div className="details-container">
+    <div className="over-details-container">
       <div className="details-background"
         style={{
           backgroundImage: `url(${backgroundUrl})`
@@ -35,6 +35,11 @@ export default function Details() {
             width={400}
             className="detail_Poster"
           />
+          
+        </div>
+        <div className="movie_Desc">
+          <h1 className="main_heading">{movie?.title}</h1>
+          <p className="movie_Desc__overview">{movie?.overview}</p>
           <div className="detail_container">
             <p className="detail_item">Status : {movie?.status}</p>
             <p className="detail_item">
@@ -46,17 +51,13 @@ export default function Details() {
               :{movie?.vote_count}
             </p>
           </div>
-        </div>
-        <div className="movie_Desc">
-          <h1 className="main_heading">{movie?.title}</h1>
-          <p className="movie_Desc__overview">{movie?.overview}</p>
           <div className="generes">
             Generes :
             {movie?.genres.map((genre) => (
               <span className="movie_Desc__genre">{genre.name},</span>
             ))}
           </div>
-          <a className="more_btn" href={movie?.homepage} target="_blank">
+          <a className="details-button" href={movie?.homepage} target="_blank">
             Learn More
           </a>
         </div>

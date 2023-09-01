@@ -134,7 +134,7 @@ a {
   margin-top: 30px;
   display: flex;
   align-items: center;
-  background-color: black;
+  background-color: rgb(21, 21, 22);
   justify-content: space-around;
   width: 100%;
   color: #ccc;
@@ -163,17 +163,6 @@ a {
   color: white;
   background: none;
   gap: 20px;
-}
-
-.register-form {
-  width: 30%;
-  margin: 100px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-}
-
-.form-group {
-  margin-bottom: 15px;
 }
 
 label {
@@ -279,13 +268,3 @@ button {
   justify-content: center;
 }
 
-/* .search_bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
-  border: none;
-  outline: 1px solid rgb(9, 9, 102);
-  border-radius: 5px;
-} */

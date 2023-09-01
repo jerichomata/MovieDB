@@ -37,11 +37,6 @@ const Navbar = () => {
         <Link to="/" className="learn_button">
           HOME
         </Link>
-        {/* <Link to="/watchlist" className="learn_button">
-          WATCHLIST
-        </Link> */}
-        {/* Search Icon */}
-
         {!loggedIn ? (
             <>
               <Link to="/login" className="learn_button">
@@ -80,7 +75,8 @@ const Navbar = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               type="text"
-              placeholder="Search Movies..."
+              placeholder="Search movies..."
+              style={{ textAlign: "center", "::placeholder": { textAlign: "center" } }}
             />
           </form>
 

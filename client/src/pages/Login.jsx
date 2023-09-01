@@ -9,6 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [errorMessage, setErrorMessage] = useState(""); // Added error message state
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +23,6 @@ const Login = () => {
       newErrors.password = "Password is required";
     }
 
-    // Set errors state to trigger error messages
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length > 0) {
@@ -41,7 +41,6 @@ const Login = () => {
       }),
     });
 
-    // Handling successful login response - NOT WORKING
     if (response.ok) {
       const data = await response.json();
       localStorage.setItem("token", data.token);
@@ -61,6 +60,10 @@ const Login = () => {
         password: errorData.password,
       };
       setErrors(errorMessages);
+      
+      if (response.status === 404) {
+        setErrorMessage("User not found. Please check your credentials.");
+      }
     }
   };
 
@@ -87,12 +90,19 @@ const Login = () => {
             placeholder='Enter your password'
           />
           {errors.password && <span className="error">{errors.password}</span>}
-
-          <button type="submit">Login</button>
-          <div class="form-footer">
-            <div>
-              <span>Don't have an account?</span> <a href="/register">Sign Up</a>
-            </div>
+        <button type="submit">Login</button>
+        </div>
+        {errorMessage && (
+          <span
+            className="error"
+            style={{ textAlign: "center", display: "block", marginTop: "13px", marginBottom: "-10px" }}
+          >
+            {errorMessage}
+          </span>
+        )}
+        <div className="form-footer">
+          <div>
+            <span>Don't have an account?</span> <a href="/register">Sign Up</a>
           </div>
         </div>
       </form>

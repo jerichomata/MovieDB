@@ -11,6 +11,7 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+  const [errorMessage, setErrorMessage] = useState(""); // Added error message state
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +28,12 @@ const Register = () => {
       newErrors.confirmPassword = "Passwords do not match";
     }
 
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
+      return;
+    }
+
     // Sending registration request
     const response = await fetch("/api/auth/register", {
       method: "POST",
@@ -39,17 +46,19 @@ const Register = () => {
       }),
     });
 
-    // Define function for setting cookies
-    const setNewCookie = (cookieValue) => {
-      setCookie("token", cookieValue, { path: "/" });
-    };
-
-    // Handling successful registration response
     if (response.ok) {
       localStorage.setItem("token", response.token);
       const data = await response.json();
-      setNewCookie(data.token);
+      setCookie("token", data.token, { path: "/" }); // Set the token cookie
       window.location.replace("/");
+    } else {
+      // Handle errors for specific status codes
+      if (response.status === 500) {
+        setErrorMessage("Password must be at least 8 characters long");
+      } else {
+        const errorData = await response.json();
+        setErrors(errorData);
+      }
     }
   };
 
@@ -86,10 +95,20 @@ const Register = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
           {errors.confirmPassword && (
-            <span className="error">{errors.confirmPassword}</span>
+            <span className="error"
+            style={{ textAlign: "center", display: "block", marginTop: "5px" }}>
+            {errors.confirmPassword}</span>
           )}
-        </div>
+          {errorMessage && (
+          <span
+            className="error"
+            style={{ textAlign: "center", display: "block", marginTop: "5px" }}
+          >
+            {errorMessage}
+          </span>
+        )}
         <button type="submit">Register</button>
+        </div>
       </form>
     </div>
   );

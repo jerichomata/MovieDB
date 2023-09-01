@@ -87,9 +87,13 @@ export default function Searched() {
         </div>
       </div>
       <div className="pagination">
-        <div>
-          <p> Total Results :{totalMovies}</p>
-          <p> Total Pages :{totalPages}</p>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <p style={{ fontSize: "14px", marginRight: "10px" }}>
+            Total Results: {totalMovies}
+          </p>
+          <p style={{ fontSize: "14px" }}>
+            Total Pages: {totalPages}
+          </p>
         </div>
         <div className="pagination_container">
           <button

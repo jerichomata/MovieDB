@@ -23,11 +23,16 @@ const Navbar = () => {
     setSearchVisible(!searchVisible);
   };
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Function to toggle the menu
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav className="navbar">
-      {/* <div className="navbar-logo">
-        <img src={logo} alt="Logo" />
-      </div> */}
+
       <div className="navbar-buttons">
         <Link to="/" className="learn_button">
           HOME
@@ -78,24 +83,18 @@ const Navbar = () => {
               placeholder="Search Movies..."
             />
           </form>
-        {/* )} */}
-        {/* {!searchVisible ? (
-          <span
-            onClick={toggleSearchBar}
-            className="material-symbols-outlined icon"
-          >
-            search
-          </span>
-        ) : (
-          <span
-            onClick={toggleSearchBar}
-            className="material-symbols-outlined icon"
-          >
-            cancel
-          </span>
-        )} */}
 
-        {/* Conditional Search Bar */}
+        {/* Hamburger menu icon for smaller screens */}
+            <div className="hamburger-icon" onClick={toggleMenu}>
+              <div className={`bar ${isMenuOpen ? 'open' : ''}`}></div>
+              <div className={`bar ${isMenuOpen ? 'open' : ''}`}></div>
+              <div className={`bar ${isMenuOpen ? 'open' : ''}`}></div>
+            </div>
+
+            {/* Menu items */}
+            <div className={`navbar-buttons ${isMenuOpen ? 'show' : ''}`}>
+              {/* ... Your navigation links */}
+            </div>
       </div>
     </nav>
   );

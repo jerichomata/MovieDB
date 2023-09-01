@@ -11,13 +11,6 @@
   color: white;
 }
 
-/* .navbar-logo img {
-  width: 50px;
-  height: 50px;
-  background-color: #333;
-  text-decoration: none;
-} */
-
 .navbar-buttons {
   display: flex;
   background: none;
@@ -46,6 +39,7 @@
 .learn_button:hover {
   background-color: rgb(19, 19, 20);
   color: rgb(157, 78, 221); /* Change the text color to purple on hover */
+  text-decoration: none;
 }
 
 .search_bar {
@@ -59,4 +53,43 @@
   background-color: rgb(35, 35, 37);
   outline-color: rgb(157, 78, 221);
   width: 300px;
+}
+
+.hamburger-icon {
+  display: none; /* Hide the hamburger on larger screens */
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+.open {
+  transform: rotate(45deg);
+}
+
+/* Show hamburger icon on smaller screens */
+@media screen and (max-width: 768px) {
+  .navbar-buttons.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    background-color: rgb(19, 19, 20);
+    padding: 20px;
+  }
+
+  .hamburger-icon {
+    display: flex;
+  }
+
+  .navbar-buttons {
+    display: none; /* Hide the menu items by default on smaller screens */
+  }
 }

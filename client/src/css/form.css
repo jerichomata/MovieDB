@@ -5,24 +5,7 @@
   -webkit-box-sizing: border-box;
 }
 
-body,
-input,
-button {
-  outline: none;
-}
-
-a {
-  color: inherit;
-  outline: none;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 .form-container {
-  
   max-width: 450px;
   margin: 0 auto;
   padding: 50px;

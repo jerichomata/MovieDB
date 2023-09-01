@@ -1,7 +1,10 @@
+import '../css/home.css';
+
 import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setMovie } from "../store/movieSlice/movieSlice";
 import { Link } from "react-router-dom";
+
 export default function Home() {
   const dispatch = useDispatch();
   const [totalMovies, setTotalMovies] = useState(0);
@@ -58,10 +61,13 @@ export default function Home() {
                 />
                 <h2 style={
                   {
+                    // fontSize: movie.title.length > 23 ? "14px" : "20px",
                     position:"absolute",
                     bottom:10
                   }
-                }>{movie.title}</h2>
+                }>{movie.title.length > 20
+                  ? movie.overview.slice(0, 18) + "..."
+                  : movie.title}</h2>
                 {/* <p>{movie.overview}</p> */}
               </Link>
               {movie.watchlist ? (

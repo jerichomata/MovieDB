@@ -1,3 +1,5 @@
+import '../css/searched.css';
+
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -60,11 +62,20 @@ export default function Searched() {
                   alt={movie.title}
                 />
                 <div className="searched-movie-details">
-                <h2>{movie.title}</h2>
-                <p>{movie.release_date}</p>
-                <p>{movie.overview.length > 100
-                    ? movie.overview.slice(0, 100) + "..."
-                    : movie.overview}</p>
+                  <h2 style={
+                    {
+                      // fontSize: movie.title.length > 23 ? "14px" : "20px",
+                      position:"absolute",
+                      bottom: 10
+                    }
+                  }>{movie.title.length > 20
+                    ? movie.overview.slice(0, 18) + "..."
+                    : movie.title}</h2>
+
+                  <p className="release-date">{movie.release_date}</p>
+                  <p className="movie-overview">{movie.overview.length > 50
+                      ? movie.overview.slice(0, 80) + "..."
+                      : movie.overview}</p>
                 </div>
               </Link>
               {movie.favourite ? (
@@ -86,7 +97,7 @@ export default function Searched() {
           ))}
         </div>
       </div>
-      <div className="pagination">
+      <div className="searched_pagination">
         <div style={{ display: "flex", alignItems: "center" }}>
           <p style={{ fontSize: "14px", marginRight: "10px" }}>
             Total Results: {totalMovies}

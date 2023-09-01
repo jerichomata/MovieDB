@@ -18,7 +18,6 @@ root.render(
         <Navbar />
 
         <App />
-
         <Footer />
       </CookiesProvider>
     </BrowserRouter>

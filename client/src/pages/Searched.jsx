@@ -45,8 +45,8 @@ export default function Searched() {
   return (
     <div>
       <div className="home-page">
-        <h1 className="main_heading">Search Result for {movie}</h1>
-        <div className="movie-list">
+        <h1 className="main_heading">SEARCH RESULTS FOR {movie}</h1>
+        <div className="searched-movie-list">
           {movies.map((movie, index) => (
             <div
               to={`/movie/${movie.id}`}
@@ -59,10 +59,13 @@ export default function Searched() {
                   src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
                   alt={movie.title}
                 />
+                <div className="searched-movie-details">
                 <h2>{movie.title}</h2>
-                <p>{movie.overview.length > 300
-                    ? movie.overview.slice(0, 300) + "..."
+                <p>{movie.release_date}</p>
+                <p>{movie.overview.length > 100
+                    ? movie.overview.slice(0, 100) + "..."
                     : movie.overview}</p>
+                </div>
               </Link>
               {movie.favourite ? (
                 <span

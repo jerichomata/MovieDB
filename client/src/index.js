@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import { Provider } from "react-redux";
 import { CookiesProvider } from "react-cookie";
 import store from "./store/store";
@@ -16,6 +17,8 @@ root.render(
         <Navbar />
 
         <App />
+
+        <Footer />
       </CookiesProvider>
     </BrowserRouter>
   </Provider>

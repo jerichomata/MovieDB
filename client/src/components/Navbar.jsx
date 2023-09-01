@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./navbar.css";
-import logo from "../assets/logo.png";
+// import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const Navbar = () => {
@@ -23,9 +23,9 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="navbar-logo">
+      {/* <div className="navbar-logo">
         <img src={logo} alt="Logo" />
-      </div>
+      </div> */}
       <div className="navbar-buttons">
         <Link to="/" className="learn_button">
           Home
@@ -66,7 +66,7 @@ const Navbar = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               type="text"
-              placeholder="Search Movie"
+              placeholder="Search Movies..."
             />
           </form>
         {/* )} */}

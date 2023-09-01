@@ -9,7 +9,7 @@ export default function Favourite() {
   return (
     <div>
       <div className="home-page">
-        <h1 className="main_heading">Favourites List</h1>
+        <h1 className="main_heading">Watch List</h1>
         <div className="movie-list">
           {movies.map((movie, index) => (
             <div
@@ -34,7 +34,7 @@ export default function Favourite() {
                   }}
                   onClick={() => dispatch(removeMovie(movie.id))}
                 >
-                  Remove From Favourites
+                  Remove From Watch List
                 </button>
               ) : (
                 <button
@@ -45,7 +45,7 @@ export default function Favourite() {
                     width: "100%",
                   }}
                 >
-                  Add to Favourites
+                  Add to Watch List
                 </button>
               )}
             </div>

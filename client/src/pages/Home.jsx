@@ -22,12 +22,12 @@ export default function Home() {
     getMovies();
   }, []);
 
-  const addToFav = (id, movie) => {
+  const addToWatchlist = (id, movie) => {
     dispatch(setMovie(movie));
     setMovies((prevData) => {
       const newData = prevData.map((obj) => {
         if (obj.id === id) {
-          return { ...obj, favourite: true };
+          return { ...obj, watchlist: true };
         }
         return obj;
       });
@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <div>
       <div className="home-page">
-        <h1 className="main_heading">Movie List</h1>
+        <h1 className="main_heading">MOVIES</h1>
         <div className="movie-list">
           {movies.map((movie, index) => (
             <div
@@ -64,7 +64,7 @@ export default function Home() {
                 }>{movie.title}</h2>
                 {/* <p>{movie.overview}</p> */}
               </Link>
-              {movie.favourite ? (
+              {movie.watchlist ? (
                 <span
                   onClick={() => getMovies()}
                   className="material-symbols-outlined favourite_icon favourited"
@@ -73,7 +73,7 @@ export default function Home() {
                 </span>
               ) : (
                 <span
-                  onClick={() => addToFav(movie.id, movie)}
+                  onClick={() => addToWatchlist(movie.id, movie)}
                   className="material-symbols-outlined favourite_icon"
                 >
                   favorite

@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import { useEffect } from "react";
 import Details from "./pages/Details";
 import Searched from "./pages/Searched";
+
 function App() {
   const loggedIn = localStorage.getItem("token");
   useEffect(() => {
@@ -17,9 +18,7 @@ function App() {
     <Routes>
       <Route
         path="/"
-        // element={loggedIn ? <Home /> : <Navigate replace to={"/login"} />}
-        element={<Home/>}
-
+        element={<Home />}
       />
       <Route
         path="/watchlist"

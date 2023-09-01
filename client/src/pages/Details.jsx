@@ -1,5 +1,8 @@
+import '../css/details.css';
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
 export default function Details() {
   const params = useParams();
   const [movie, setMovie] = useState(null);
@@ -18,28 +21,10 @@ export default function Details() {
   }, []);
 
   return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100vh",
-        position: "relative",
-        background: "none",
-        overflow: "hidden",
-      }}
-    >
-      <div
+    <div className="details-container">
+      <div className="details-background"
         style={{
-          width: "100%",
-          height: "100%",
-          backgroundImage: `url(${backgroundUrl})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-
-          backgroundSize: "cover",
-          filter: "blur(5px)", // Apply blur filter
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          backgroundImage: `url(${backgroundUrl})`
         }}
       ></div>
       <div className="movie_detail">

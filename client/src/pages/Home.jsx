@@ -101,6 +101,7 @@ export default function Home() {
         <div className="pagination_container">
           <button
             className="pagination_btns"
+            disabled={currentPage == 1}
             onClick={async () => {
               setLoading(true);
               setCurrentPage(currentPage === 0 ? 0 : currentPage - 1);
@@ -116,6 +117,7 @@ export default function Home() {
             className="pagination_btns"
             onClick={async () => {
               setLoading(true);
+
               setCurrentPage(currentPage + 1);
               await getMovies();
               setLoading(false);

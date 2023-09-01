@@ -7,7 +7,7 @@ const movieSlice = createSlice({
   },
   reducers: {
     setMovie: (state, action) => {
-      state.movie.push({ ...action.payload, favourite: true });
+      state.movie.push({ ...action.payload, watchlist: true });
     },
     removeMovie: (state, action) => {
       state.movie = state.movie.filter((movie) => movie.id !== action.payload);

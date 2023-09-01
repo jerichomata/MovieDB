@@ -1,8 +1,10 @@
+import '../css/navbar.css';
+
 import React, { useEffect, useState } from "react";
-import "./navbar.css";
 // import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
   const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
@@ -28,36 +30,43 @@ const Navbar = () => {
       </div> */}
       <div className="navbar-buttons">
         <Link to="/" className="learn_button">
-          Home
+          HOME
         </Link>
-        <Link to="/favourites" className="learn_button">
-          Watch List
-        </Link>
+        {/* <Link to="/watchlist" className="learn_button">
+          WATCHLIST
+        </Link> */}
         {/* Search Icon */}
 
         {!loggedIn ? (
-          <>
-            <Link to="/login" className="learn_button">
-              Login
-            </Link>
-            <Link to="/register" className="learn_button">
-              Register
-            </Link>
-          </>
-        ) : (
-          <Link
-            as
-            button
-            onClick={() => {
-              localStorage.removeItem("token");
-              window.location.reload();
-            }}
-            className="learn_button"
-          >
-            Logout
-          </Link>
-        )}
+            <>
+              <Link to="/login" className="learn_button">
+                LOGIN
+              </Link>
+              <Link to="/register" className="learn_button">
+                REGISTER
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/watchlist" className="learn_button">
+                WATCHLIST
+              </Link>
+              <Link
+                as="button"
+                onClick={() => {
+                  localStorage.removeItem("token");
+                  window.location.reload();
+                }}
+                className="learn_button"
+              >
+                LOGOUT
+              </Link>
+            </>
+          )}
+
       </div>
+      
+      {/* seach function */ }
       <div className="search_container">
         {/* {searchVisible && ( */}
           <form onSubmit={getMovies}>

@@ -279,34 +279,7 @@ button {
   justify-content: center;
 }
 
-.learn_button {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.learn_button:hover {
-  background-color: #666;
-}
-.more_btn {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 80px;
-}
-.more_btn:hover {
-  background-color: #666;
-}
-
-.search_bar {
+/* .search_bar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -315,4 +288,4 @@ button {
   border: none;
   outline: 1px solid rgb(9, 9, 102);
   border-radius: 5px;
-}
+} */

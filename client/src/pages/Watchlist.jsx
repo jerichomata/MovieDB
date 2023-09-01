@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { removeMovie } from "../store/movieSlice/movieSlice";
-export default function Favourite() {
+export default function Watchlist() {
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movie.movie);
 
@@ -22,20 +22,16 @@ export default function Favourite() {
                 alt={movie.title}
               />
               <h2>{movie.title}</h2>
-              <p>{movie.overview}</p>
-              {movie.favourite ? (
-                <button
-                  style={{
-                    position: "absolute",
-                    backgroundColor: "red",
-                    bottom: 2,
-                    left: 0,
-                    width: "100%",
-                  }}
-                  onClick={() => dispatch(removeMovie(movie.id))}
-                >
-                  Remove From Watch List
-                </button>
+              <p>{movie.overview.length > 100
+                    ? movie.overview.slice(0, 100) + "..."
+                    : movie.overview}</p>
+              {movie.watchlist ? (
+                <span
+                onClick={() => dispatch(removeMovie(movie.id))}
+                className="material-symbols-outlined favourite_icon favourited"
+              >
+                playlist_add_check
+              </span>
               ) : (
                 <button
                   style={{

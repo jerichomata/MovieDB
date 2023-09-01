@@ -1,4 +1,5 @@
 import '../css/searched.css';
+import altImg from '../assets/empty-film-purple.jpg'
 
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -28,6 +29,7 @@ export default function Searched() {
   useEffect(() => {
     getMovies();
   }, []);
+
   const addToFav = (id, movie) => {
     dispatch(setMovie(movie));
     setMovies((prevData) => {
@@ -58,8 +60,8 @@ export default function Searched() {
             >
               <Link to={`/movie/${movie.id}`}>
                 <img
-                  src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
-                  alt={movie.title}
+                  src={movie.backdrop_path ? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}` : altImg}
+                  alt={altImg}
                 />
                 <div className="searched-movie-details">
                   <h2 style={

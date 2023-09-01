@@ -1,4 +1,5 @@
 import '../css/home.css';
+import altImg from '../assets/empty-film-purple.jpg'
 
 import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -55,9 +56,8 @@ export default function Home() {
             >
               <Link to={`/movie/${movie.id}`}>
                 <img
-                // style={{width:"100%", height:"90%"}}
-                  src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
-                  alt={movie.title}
+                  src={movie.backdrop_path ? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}` : altImg}
+                  alt={altImg}
                 />
                 <h2 style={
                   {

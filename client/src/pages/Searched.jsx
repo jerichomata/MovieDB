@@ -72,7 +72,7 @@ export default function Searched() {
                       textTransform: "uppercase"
                     }
                   }>{movie.title.length > 20
-                    ? movie.overview.slice(0, 18) + "..."
+                    ? movie.title.slice(0, 18) + "..."
                     : movie.title}</h2>
 
                   <p className="release-date">{movie.release_date}</p>

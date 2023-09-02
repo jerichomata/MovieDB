@@ -1,7 +1,11 @@
+import altImg from '../assets/empty-film-purple.jpg'
+
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { removeMovie } from "../store/movieSlice/movieSlice";
+import { Link } from "react-router-dom";
+
 export default function Watchlist() {
   const dispatch = useDispatch();
   const movies = useSelector((state) => state.movie.movie);
@@ -17,20 +21,23 @@ export default function Watchlist() {
               key={index}
               className="movie-card"
             >
-              <img
-                src={"https://image.tmdb.org/t/p/w500" + movie.backdrop_path}
-                alt={movie.title}
-              />
-              <h2 style={
+              <Link to={`/movie/${movie.id}`}>
+                <img
+                  src={movie.backdrop_path ? `https://image.tmdb.org/t/p/w500${movie.backdrop_path}` : altImg}
+                  alt={altImg}
+                />
+                <h2 style={
                   {
-                    fontSize: movie.title.length > 23 ? "14px" : "20px",
+                    // fontSize: movie.title.length > 23 ? "14px" : "20px",
                     position:"absolute",
-                    bottom:10
+                    bottom:10,
+                    textTransform: "uppercase"
                   }
-                }>{movie.title}</h2>
-              {/* <p>{movie.overview.length > 100
-                    ? movie.overview.slice(0, 100) + "..."
-                    : movie.overview}</p> */}
+                }>{movie.title.length > 20
+                  ? movie.overview.slice(0, 18) + "..."
+                  : movie.title}</h2>
+                {/* <p>{movie.overview}</p> */}
+              </Link>
               {movie.watchlist ? (
                 <span
                 onClick={() => dispatch(removeMovie(movie.id))}

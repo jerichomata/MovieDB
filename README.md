@@ -8,7 +8,7 @@ Movie application powered by the The Moviedb API. Created using MongoDB, Express
 
 Run this project locally by forking the repository then cloning. (You must have two terminals, one for the server and another for the client).
 
-- Open the project in your VSCode.
+- Open the project in VSCode.
 
 In the first terminal [SERVER]
 

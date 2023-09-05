@@ -34,6 +34,11 @@ $ npm start
     email: "test@moviedb.com"
 <br/>
     password: "password"
+
+<br/>
+    email: "test2@moviedb.com"
+<br/>
+    password: "password"
     
 ## Database 
 

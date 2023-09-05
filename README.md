@@ -28,6 +28,7 @@ $ npm install
 $ npm start 
 ```
 
+<br/>
 - You may use these login credentials: 
 <br/>
     email: 'test@moviedb.com'
@@ -52,7 +53,7 @@ $ npm start
 - User login & registration linked to MongoDB.
 - Authentication using JWT Tokens.
 
-### Technologies
+## Technologies
 
 - [MongoDB]()
 
@@ -66,7 +67,7 @@ $ npm start
 
 <br/>
 
- ##  Screenshots 
+##  Screenshots 
  
 ![homepage](/screenshots/home.png)
 ![clicked tile](/screenshots/details.png)

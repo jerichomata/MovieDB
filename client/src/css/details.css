@@ -4,6 +4,8 @@
     position: relative;
     background: none;
     overflow: hidden;
+    align-items:center;
+    justify-content:center;
 }
 
 .details-background {
@@ -13,9 +15,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     filter: blur(5px); 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    position: fixed;
 }
 
 .detail_item {
@@ -27,16 +28,13 @@
 }
 
 .movie_detail {
-    width: 80%;
     display: flex;
     height: 60%;
-    position: absolute;
-    top: 30px;
+    position: relative;
     box-shadow: 5px 12px 25px rgba(0, 0, 0, 0.8);
     border-radius: 20px;
-    left: 120px;
-    margin: auto;
-    margin-top: 140px;
+    overflow: hidden;
+    margin: 200px 70px 0px 70px;
 }
 
 .movie_detail__poster {
@@ -85,4 +83,13 @@
 
 .details-button {
     color: yellow;
-}
+} 
+
+.movie_Desc {
+    width:10%;
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }

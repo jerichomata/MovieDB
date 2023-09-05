@@ -196,11 +196,3 @@ label {
     opacity: 1;
   }
 }
-
-.movie_Desc {
-  flex: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}

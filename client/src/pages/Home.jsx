@@ -5,6 +5,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setMovie } from "../store/movieSlice/movieSlice";
 import { Link } from "react-router-dom";
+import { current } from '@reduxjs/toolkit';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -13,13 +14,14 @@ export default function Home() {
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
-  const getMovies = useCallback(async () => {
-    const response = await fetch(`/api/movies?page=${currentPage}`);
+  const getMovies = useCallback(async (test) => {
+    console.log(currentPage)
+    const response = await fetch(`/api/movies?page=${test}`);
     const data = await response.json();
     setTotalMovies(data.total_results);
     setTotalPages(data.total_pages);
     setMovies(data.results);
-    setLoading(false);
+    // setLoading(false);
     console.log(data);
   });
   useEffect(() => {
@@ -61,15 +63,13 @@ export default function Home() {
                 />
                 <h2 style={
                   {
-                    // fontSize: movie.title.length > 23 ? "14px" : "20px",
                     position:"absolute",
                     bottom:10,
                     textTransform: "uppercase"
                   }
                 }>{movie.title.length > 20
-                  ? movie.overview.slice(0, 18) + "..."
+                  ? movie.title.slice(0, 18) + "..."
                   : movie.title}</h2>
-                {/* <p>{movie.overview}</p> */}
               </Link>
               {movie.watchlist ? (
                 <span
@@ -105,8 +105,8 @@ export default function Home() {
             disabled={currentPage == 1}
             onClick={async () => {
               setLoading(true);
-              setCurrentPage(currentPage === 0 ? 0 : currentPage - 1);
-              await getMovies();
+              setCurrentPage(currentPage => currentPage - 1);
+              await getMovies(currentPage - 1);
               setLoading(false);
             }}
           >
@@ -118,9 +118,8 @@ export default function Home() {
             className="pagination_btns"
             onClick={async () => {
               setLoading(true);
-
-              setCurrentPage(currentPage + 1);
-              await getMovies();
+              setCurrentPage(currentPage => currentPage + 1);
+              await getMovies(currentPage + 1);
               setLoading(false);
             }}
           >

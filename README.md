@@ -30,9 +30,6 @@ $ npm install
 $ npm start 
 ```
 
- - When opening the app locally, you will be logged in. Please feel free to logout to check login and
-register functionality
-
 <br/>
     - You may use this login credential: 
 <br/>

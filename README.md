@@ -55,7 +55,14 @@ $ npm start
 ![img-1](../screenshots/home.png)
 ---- -
 ![img-2](../screenshots/details.png)
---- - 
+---- -
+![img-3](../screenshots/login.png)
+---- -
+![img-4](../screenshots/register.png)
+---- -
+![img-5](../screenshots/watchlist.png)
+---- -
+![img-6](../screenshots/search.png)
 
 ## Author
 - [Jericho Mata's Porfolio](https://jerichomata.com/)

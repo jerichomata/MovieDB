@@ -14,7 +14,7 @@ In the first terminal [SERVER]
 
 ```
 $ cd server
-$ npm install //install server-side dependencies
+$ npm install
 $ npm start
 ```
 
@@ -24,14 +24,27 @@ In the second terminal [CLIENT]
 # --- Terminal ---
 
 $ cd client
-$ npm install //install client-side dependencies
+$ npm install
 $ npm start 
 ```
+- You may use these login credentials:
+    email: 'test@moviedb.com'
+    password: 'password'
+    
+## Database 
+
+| Field           | Value                                                  |
+|-----------------|--------------------------------------------------------|
+| _id             | 64f119fcafe16579ac5b87a2                               |
+| email           | "test@moviedb.com"                                     |
+| password        | "$2a$10$dziCB.zY6BNapD/qxNyL0uBRw0TKeF74WYG30bN5u37aThh7wejp2" |
+| favorites       | Array                                                  |
+| __v             | 0                                                      |
 
 ##  Key Features
 
 - Pagination.
-- Marking/ unmarking as favorite.
+- Marking/Unmarking as favorite.
 - Searching.
 - User login & registration linked to MongoDB.
 - Authentication using JWT Tokens.
@@ -54,9 +67,6 @@ $ npm start
  
 ![homepage](/screenshots/home.png)
 ![clicked tile](/screenshots/details.png)
-![login page](/screenshots/login.png)
-![register page](/screenshots/register.png)
-![watchlist](/screenshots/watchlist.png)
 ![search](/screenshots/search.png)
 
 ## Author

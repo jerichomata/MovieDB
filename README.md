@@ -31,9 +31,9 @@ $ npm start
 <br/>
 - You may use these login credentials: 
 <br/>
-    email: 'test@moviedb.com'
+    email: "test@moviedb.com"
 <br/>
-    password: 'password'
+    password: "password"
     
 ## Database 
 

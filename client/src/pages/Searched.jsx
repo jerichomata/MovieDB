@@ -16,9 +16,12 @@ export default function Searched() {
   const [movies, setMovies] = useState([]);
   const { movie } = params;
 
-  const getMovies = async () => {
+  const getMovies = async (currentPage) => {
     setLoading(true);
-    const response = await fetch(`/api/search/${movie}`);
+    console.log(movie)
+    console.log(currentPage)
+    console.log(`/api/search/${movie}/${currentPage}`)
+    const response = await fetch(`/api/search/${movie}/${currentPage}`);
     const data = await response.json();
     console.log(data);
     setMovies(data.results);
@@ -27,7 +30,7 @@ export default function Searched() {
     setLoading(false);
   };
   useEffect(() => {
-    getMovies();
+    getMovies(1);
   }, []);
 
   // const dispatch = useDispatch();
@@ -103,7 +106,7 @@ export default function Searched() {
               </Link>
               {movie.favourite ? (
                 <span
-                  onClick={() => getMovies()}
+                  onClick={() => getMovies(1)}
                   className="material-symbols-outlined favourite_icon favourited"
                 >
                   playlist_add_check

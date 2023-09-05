@@ -40,12 +40,13 @@ router.get("/movie/:id", async (req, res) => {
   }
 });
 
-router.get("/search/:movie", async (req, res) => {
-  const { movie } = req.params;
+router.get("/search/:movie/:page?", async (req, res) => {
+  const { movie, page } = req.params;
   console.log(movie);
   try {
+    console.log(`https://api.themoviedb.org/3/search/movie?query=${movie}&api_key=211b6aa7fd85fb83be4a47fc32f10a66&page=${page}`)
     const movies = await fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${movie}&api_key=211b6aa7fd85fb83be4a47fc32f10a66`
+      `https://api.themoviedb.org/3/search/movie?query=${movie}&api_key=211b6aa7fd85fb83be4a47fc32f10a66&page=${page}`
     );
     const data = await movies.json();
     res.status(200).json(data);

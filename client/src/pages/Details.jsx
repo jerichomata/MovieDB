@@ -31,30 +31,33 @@ export default function Details() {
         <div className="movie_detail__poster">
           <img
             src={backgroundUrl}
-            height={400}
-            width={400}
+            height={200}
+            width={200}
             className="detail_Poster"
           />
-          
         </div>
         <div className="movie_Desc">
           <h1 className="main_heading">{movie?.title}</h1>
+          <hr className="divider" />
           <p className="movie_Desc__overview">{movie?.overview}</p>
           <div className="detail_container">
-            <p className="detail_item">Status : {movie?.status}</p>
+            <p className="detail_item">Status: {movie?.status}</p>
             <p className="detail_item">
-              Duration <span class="material-symbols-outlined">schedule</span> :
+              Duration <span className="material-symbols-outlined">schedule</span>:&nbsp;
               {movie?.runtime}min
             </p>
             <p className="detail_item">
-              Vote Count <span class="material-symbols-outlined">thumb_up</span>{" "}
-              :{movie?.vote_count}
+              Vote Count<span class="material-symbols-outlined">thumb_up</span>{" "}
+              : {movie?.vote_count}
             </p>
           </div>
           <div className="generes">
-            Generes :
-            {movie?.genres.map((genre) => (
-              <span className="movie_Desc__genre">{genre.name},</span>
+            Generes: 
+            {movie?.genres.map((genre, index) => (
+              <span key={genre.id} className="movie_Desc__genre">
+                {genre.name}
+                {index !== movie.genres.length - 1 ? "," : ""}
+              </span>
             ))}
           </div>
           <a className="details-button" href={movie?.homepage} target="_blank">

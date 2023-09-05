@@ -30,7 +30,7 @@ $ npm install
 $ npm start 
 ```
 
- - When first opening the app, you will be logged in. Please feel free to logout to check login and
+ - When opening the app locally, you will be logged in. Please feel free to logout to check login and
 register functionality
 
 <br/>

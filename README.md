@@ -1,6 +1,7 @@
 <H1 align ="left" > MOVIEDB  </h1>
 <h5  align ="left"> 
-Movie application powered by the The Moviedb API. Created using MongoDB, Express, React, NodeJS. h5>
+Movie application powered by the The Moviedb API. Created using MongoDB, Express, React, NodeJS. 
+<h5>
 <br/>
 
 ## Setup
@@ -9,7 +10,7 @@ Run this project locally by forking the repository then cloning. (You must have 
 
 - Open the project in your VSCode.
 
-In the first terminal [SERVER], and from root
+In the first terminal [SERVER]
 
 ```
 $ cd server
@@ -31,21 +32,29 @@ $ npm start
 
 - Pagination.
 - Marking/ unmarking as favorite.
-- Searching
+- Searching.
 - User login & registration linked to MongoDB.
 - Authentication using JWT Tokens.
 
+### Technologies
+
+- [MongoDB]()
+
+- [ExpressJS]()
+
+- [ReactJS]()
+
+- [NodeJS]()
+
+- TMDb API --> https://www.themoviedb.org/
+
 <br/>
 
-####  Api 
-
- - [TMDB API](https://developer.themoviedb.org/docs)
- 
  ##  Screenshots 
  
-![img-1]()
+![img-1](./screenshots/home.png)
 ---- -
-![img-2]()
+![img-2](./screenshots/details.png)
 --- - 
 
 ## Author

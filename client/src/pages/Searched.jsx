@@ -1,7 +1,7 @@
 import '../css/searched.css';
 import altImg from '../assets/empty-film-purple.jpg'
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setMovie } from "../store/movieSlice/movieSlice";
@@ -29,6 +29,27 @@ export default function Searched() {
   useEffect(() => {
     getMovies();
   }, []);
+
+  // const dispatch = useDispatch();
+  // const [totalMovies, setTotalMovies] = useState(0);
+  // const [totalPages, setTotalPages] = useState(0);
+  // const [movies, setMovies] = useState([]);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [loading, setLoading] = useState(true);
+  // const params = useParams();
+  // const { movie } = params;
+  // const getMovies = useCallback(async (test) => {
+  //   console.log(currentPage)
+  //   const response = await fetch(`/api/movies?page=${test}`);
+  //   const data = await response.json();
+  //   setTotalMovies(data.total_results);
+  //   setTotalPages(data.total_pages);
+  //   setMovies(data.results);
+  //   console.log(data);
+  // });
+  // useEffect(() => {
+  //   getMovies();
+  // }, []);
 
   const addToFav = (id, movie) => {
     dispatch(setMovie(movie));
@@ -66,7 +87,6 @@ export default function Searched() {
                 <div className="searched-movie-details">
                   <h2 style={
                     {
-                      // fontSize: movie.title.length > 23 ? "14px" : "20px",
                       position:"absolute",
                       bottom: 10,
                       textTransform: "uppercase"
@@ -112,10 +132,11 @@ export default function Searched() {
         <div className="pagination_container">
           <button
             className="pagination_btns"
+            disabled={currentPage === 1}
             onClick={async () => {
               setLoading(true);
-              setCurrentPage(currentPage === 0 ? 0 : currentPage - 1);
-              await getMovies();
+              setCurrentPage(currentPage => currentPage - 1);
+              await getMovies(currentPage - 1);
               setLoading(false);
             }}
           >
@@ -127,8 +148,8 @@ export default function Searched() {
             className="pagination_btns"
             onClick={async () => {
               setLoading(true);
-              setCurrentPage(currentPage + 1);
-              await getMovies();
+              setCurrentPage(currentPage => currentPage + 1);
+              await getMovies(currentPage + 1);
               setLoading(false);
             }}
           >

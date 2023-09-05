@@ -2,15 +2,15 @@ import '../css/form.css';
 
 import React, { useState } from "react";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const navigation = useNavigate();
+  // const navigation = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+  const [setCookie] = useCookies(["token"]);
   const [errorMessage, setErrorMessage] = useState(""); // Added error message state
 
   const handleSubmit = async (e) => {

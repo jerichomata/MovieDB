@@ -1,11 +1,11 @@
 import '../css/form.css';
 
 import React, { useState } from "react";
-import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
+// import { useCookies } from "react-cookie";
+// import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigation = useNavigate();
+  // const navigation = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});

@@ -5,7 +5,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setMovie } from "../store/movieSlice/movieSlice";
 import { Link } from "react-router-dom";
-import { current } from '@reduxjs/toolkit';
+// import { current } from '@reduxjs/toolkit';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -21,7 +21,6 @@ export default function Home() {
     setTotalMovies(data.total_results);
     setTotalPages(data.total_pages);
     setMovies(data.results);
-    // setLoading(false);
     console.log(data);
   });
   useEffect(() => {
@@ -102,7 +101,7 @@ export default function Home() {
         <div className="pagination_container">
           <button
             className="pagination_btns"
-            disabled={currentPage == 1}
+            disabled={currentPage === 1}
             onClick={async () => {
               setLoading(true);
               setCurrentPage(currentPage => currentPage - 1);

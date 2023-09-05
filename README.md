@@ -14,7 +14,7 @@ In the first terminal [SERVER]
 
 ```
 $ cd server
-$ npm install #install server-side dependencies
+$ npm install //install server-side dependencies
 $ npm start
 ```
 
@@ -24,7 +24,7 @@ In the second terminal [CLIENT]
 # --- Terminal ---
 
 $ cd client
-$ npm install (install client-side dependencies)
+$ npm install //install client-side dependencies
 $ npm start 
 ```
 

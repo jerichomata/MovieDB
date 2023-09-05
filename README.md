@@ -52,12 +52,12 @@ $ npm start
 
  ##  Screenshots 
  
-![homepage](../screenshots/home.png)
-![clicked tile](../screenshots/details.png)
-![login page](../screenshots/login.png)
-![register page](../screenshots/register.png)
-![watchlist](../screenshots/watchlist.png)
-![search](../screenshots/search.png)
+![homepage](/screenshots/home.png)
+![clicked tile](/screenshots/details.png)
+![login page](/screenshots/login.png)
+![register page](/screenshots/register.png)
+![watchlist](/screenshots/watchlist.png)
+![search](/screenshots/search.png)
 
 ## Author
 - [Jericho Mata's Porfolio](https://jerichomata.com/)

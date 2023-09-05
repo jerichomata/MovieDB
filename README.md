@@ -14,7 +14,7 @@ In the first terminal [SERVER]
 
 ```
 $ cd server
-$ npm install (install server-side dependencies)
+$ npm install #install server-side dependencies
 $ npm start
 ```
 

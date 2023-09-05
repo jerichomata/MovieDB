@@ -13,6 +13,8 @@ Run this project locally by forking the repository then cloning. (You must have 
 In the first terminal [SERVER]
 
 ```
+# --- Terminal #1 ---
+
 $ cd server
 $ npm install
 $ npm start
@@ -21,7 +23,7 @@ $ npm start
 In the second terminal [CLIENT]
 
 ```
-# --- Terminal ---
+# --- Terminal #2 ---
 
 $ cd client
 $ npm install

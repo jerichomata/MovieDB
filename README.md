@@ -52,9 +52,9 @@ $ npm start
 
  ##  Screenshots 
  
-![img-1](./screenshots/home.png)
+![img-1](../screenshots/home.png)
 ---- -
-![img-2](./screenshots/details.png)
+![img-2](../screenshots/details.png)
 --- - 
 
 ## Author

@@ -27,8 +27,11 @@ $ cd client
 $ npm install
 $ npm start 
 ```
-- You may use these login credentials:
+
+- You may use these login credentials: 
+<br/>
     email: 'test@moviedb.com'
+<br/>
     password: 'password'
     
 ## Database 

@@ -30,13 +30,16 @@ $ npm install
 $ npm start 
 ```
 
+    - When first opening the app, you will be logged in. Please feel free to logout to check login and
+    register functionality
+
 <br/>
-- You may use this login credential: 
+    - You may use this login credential: 
 <br/>
-    email: "test@moviedb.com"
+        email: "test@moviedb.com"
 <br/>
-    password: "password"
-    
+        password: "password"
+
 ## Database 
 
 | Field           | Value                                                  |

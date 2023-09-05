@@ -4,6 +4,8 @@ Movie application powered by the The Moviedb API. Created using MongoDB, Express
 <h5>
 <br/>
 
+Live Link - https://moviedb-mern-deploy-c1ac452d42ea.herokuapp.com/
+
 ## Setup
 
 Run this project locally by forking the repository then cloning. (You must have two terminals, one for the server and another for the client).
@@ -31,7 +33,7 @@ $ npm start
 ```
 
 <br/>
-    - You may use this login credential: 
+    - You may use this login credential or register and the registered credentials will be reflected on the live demo: 
 <br/>
         email: "test@moviedb.com"
 <br/>
